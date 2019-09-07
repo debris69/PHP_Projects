@@ -1,16 +1,16 @@
 <html>
-<center> <br> <br> <br> <br> <br> 
+<center> <br> <br> <br> <br> <br>
 <body background='abstract.png'><h3>
 <?php
 	$sort=$_POST['sort'];
 	$value=$_POST['value'];
-	
+
 	$mysql=mysqli_connect('localhost','root','','university');
 	if(mysqli_connect_errno())
 		echo " Connection Failed!!! ".mysqli_connect_error()."</br>";
 	else
 		echo " Connection Successfull!!! "."</br>";
-	
+
 	if($sort=='All')
 		$sql="select * from student";
 	else
