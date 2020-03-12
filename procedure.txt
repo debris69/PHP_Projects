@@ -1,0 +1,18 @@
+BEGIN
+
+DECLARE done INT DEFAULT FALSE;
+DECLARE x,y INT;
+DECLARE emp_s CURSOR FOR SELECT salary,commission from test.emp;
+
+OPEN emp_s;
+
+read_loop: LOOP
+	FETCH emp_s INTO x;
+    IF done THEN
+    	LEAVE read_loop;
+    END IF;
+    
+    update test.emp set salary = salary + (salary * (15.00/100.00));
+    END LOOP;
+    CLOSE emp_s;
+END
